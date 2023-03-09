@@ -1,0 +1,21 @@
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let data of metadata.columns">
+                {{data["title"]}}
+            </th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of rows;index as i;">
+            <td *ngFor="let data of metadata.columns;">
+                {{row[data["key"]]}}
+            </td>
+            <span *ngFor="let action of metadata.actions">
+                <button (click)="onActionFunc(action.name,i,row)">{{action["title"]}}</button>
+            </span>
+        </tr>
+       
+    </tbody>
+</table>

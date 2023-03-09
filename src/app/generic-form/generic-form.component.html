@@ -1,0 +1,18 @@
+<hr>
+
+<form action="" (submit)="dodajRow()" ngNativeValidate>
+    <div *ngFor="let m of metadata.columns">
+        <label>{{m.title}}</label>
+        <input name="{{m.key}}" type="{{m.type}}" [(ngModel)]="row[m.key]">
+    </div>
+    
+    <div>
+        <button *ngIf="rezim === 'dodavanje'" type="submit">Dodaj</button>
+        <div *ngIf="rezim === 'izmena'">
+            <button type="submit">Izmeni</button>
+            <button type="reset" (click)="ponisti()">Reset</button>
+        </div>
+    </div>
+    
+</form>
+
